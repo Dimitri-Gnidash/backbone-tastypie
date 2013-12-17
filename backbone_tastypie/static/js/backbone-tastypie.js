@@ -59,7 +59,7 @@
 			// Set up 'success' handling
 			var success = options.success;
 			dfd.done( function( resp, textStatus, xhr ) {
-				_.isFunction( success ) && success( resp );
+				_.isFunction( success ) && success( model, resp, options );
 			});
 
 			options.success = function( resp, textStatus, xhr ) {
