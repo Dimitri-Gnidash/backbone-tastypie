@@ -76,7 +76,7 @@
 					});
 				}
 				else {
-					return dfd.resolveWith( options.context || options, [ resp, textStatus, xhr ] );
+					return dfd.resolveWith( options.context || options, [ resp, xhr.statusText, xhr ] );
 				}
 			};
 
