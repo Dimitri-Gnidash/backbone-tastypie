@@ -62,9 +62,10 @@
 				_.isFunction( success ) && success( model, resp, options );
 			});
 
-			options.success = function( resp, textStatus, xhr ) {
+			options.success = function( model, resp, options ) {
 				// If create is successful but doesn't return a response, fire an extra GET.
 				// Otherwise, resolve the deferred (which triggers the original 'success' callbacks).
+				var xhr = options.xhr;
 				if ( !resp && ( xhr.status === 201 || xhr.status === 202 || xhr.status === 204 ) ) { // 201 CREATED, 202 ACCEPTED or 204 NO CONTENT; response null or empty.
 					var location = xhr.getResponseHeader( 'Location' ) || model.url();
 					return Backbone.ajax({
