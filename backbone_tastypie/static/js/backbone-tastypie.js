@@ -83,7 +83,7 @@
 			// Set up 'error' handling
 			var error = options.error;
 			dfd.fail( function( xhr, textStatus, errorThrown, model ) {
-				_.isFunction( error ) && error( xhr.responseText, xhr, model );
+				_.isFunction( error ) && error( xhr, model );
 			});
 
 			options.error = function(model, xhr, options ) {
