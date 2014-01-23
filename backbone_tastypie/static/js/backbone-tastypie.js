@@ -86,8 +86,8 @@
 				_.isFunction( error ) && error( xhr.responseText );
 			});
 
-			options.error = function( xhr, textStatus, errorText ) {
-				dfd.rejectWith( options.context || options, [ xhr, textStatus, xhr.responseText ] );
+			options.error = function(model, xhr, options ) {
+				dfd.rejectWith( options.context || options, [ xhr, xhr.statusText, xhr.responseText ] );
 			};
 
 			// Create the request, and make it accessibly by assigning it to the 'request' property on the deferred
